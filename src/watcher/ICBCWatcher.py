@@ -9,15 +9,15 @@ class ICBCWatcher(PageWatcher):
     def process(self, document):
         strPrice1 = document("#ctl00_Content_Boby_AccountGold1_Label_mrj1")
         price1 = stringUtils.getAmount(strPrice1.text())
-        print('银行买入价：%s元/克' % price1)
+        # print('银行买入价：%s元/克' % price1)
 
         strPrice2 = document('#ctl00_Content_Boby_AccountGold1_Label_mcj1')
         price2 = stringUtils.getAmount(strPrice2.text())
-        print('银行卖出价：%s元/克' % price2)
+        # print('银行卖出价：%s元/克' % price2)
 
         strPrice3 = document('#ctl00_Content_Boby_AccountGold1_Label_zjj1')
         price3 = stringUtils.getAmount(strPrice3.text())
-        print('中间价：%s元/克' % price3)
+        # print('中间价：%s元/克' % price3)
 
         # 到达设定值时，发送警告
         highest = float(270)
