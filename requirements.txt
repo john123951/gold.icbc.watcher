@@ -1,3 +1,6 @@
-schedule
-requests
+cssselect==1.0.0
+requests==2.9.1
+schedule==0.3.2
+lxml==3.5.0
+urllib3==1.13.1
 pyquery==1.2.17
