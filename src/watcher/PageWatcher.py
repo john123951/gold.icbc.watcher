@@ -1,11 +1,13 @@
+# -*- coding:utf-8 -*-
 from pyquery import PyQuery as pq
-
 from src.notify.PushNotify import PushNotify
+import datetime
 
 
 class PageWatcher(object):
     def __init__(self):
-        self.push = PushNotify()
+        self._push = PushNotify()
+        self._lastNotifyTime = {}
 
     def get_url(self):
         """
@@ -28,10 +30,27 @@ class PageWatcher(object):
         :param message:
         :return:
         """
-        self.push.push_msg(type(self).__name__, message)
+        interval = 60 * 30
+        if self._get_self_name() in self._lastNotifyTime.keys():
+            now = datetime.datetime.now()
+            last_time = self._lastNotifyTime[self._get_self_name()]
+            if (now - last_time).seconds < interval:
+                return
+            pass
+
+        success = self._push.push_msg(self._get_self_name(), message)
+        if success:
+            self._lastNotifyTime[self._get_self_name()] = datetime.datetime.now()
+            pass
         pass
 
+    def _get_self_name(self):
+        return type(self).__name__
+
     def start(self):
-        url = self.get_url()
-        document = pq(url=url)
-        self.process(document)
+        try:
+            url = self.get_url()
+            document = pq(url=url)
+            self.process(document)
+        except:
+            return

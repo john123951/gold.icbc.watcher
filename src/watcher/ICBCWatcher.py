@@ -1,3 +1,5 @@
+# -*- coding:utf-8 -*-
+
 from src.watcher.PageWatcher import PageWatcher
 from src.util import stringUtils
 
@@ -20,15 +22,16 @@ class ICBCWatcher(PageWatcher):
         # print('中间价：%s元/克' % price3)
 
         # 到达设定值时，发送警告
-        highest = float(270)
-        lowest = float(260)
+        highest = float(280)
+        lowest = float(265)
         if price1 > highest:
-            icbc.notify('银行买入价高于设定值%s，目前价格%s' % (highest, price1))
+            self.notify('银行买入价高于设定值%s，目前价格%s' % (highest, price1))
         if price1 < lowest:
-            icbc.notify('！！！银行买入价低于设定值%s，目前价格%s' % (lowest, price1))
+            self.notify('！！！银行买入价低于设定值%s，目前价格%s' % (lowest, price1))
         pass
 
 
 if __name__ == '__main__':
     icbc = ICBCWatcher()
     icbc.start()
+    # icbc.start()
