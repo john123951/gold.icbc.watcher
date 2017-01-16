@@ -89,4 +89,6 @@ ENV/
 .ropeproject
 .idea
 
-/src/config/*.config
+*.config
+
+
