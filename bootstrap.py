@@ -7,7 +7,7 @@ import time
 from src.watcher.ICBCWatcher import ICBCWatcher
 from util.JsonConfig import JsonConfig
 
-config_file_path = os.path.join(os.path.split(os.path.realpath(__file__))[0], 'config', 'push.config')
+config_file_path = os.path.join(os.path.split(os.path.realpath(__file__))[0], 'config', 'watcher.config')
 
 
 def update_config():
