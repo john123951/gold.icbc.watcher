@@ -34,4 +34,3 @@ class ICBCWatcher(PageWatcher):
 if __name__ == '__main__':
     icbc = ICBCWatcher()
     icbc.start()
-    # icbc.start()
