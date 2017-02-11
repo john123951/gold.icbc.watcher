@@ -1,18 +1,16 @@
 # -*- coding:utf-8 -*-
 import json
 import logging
-
 import requests
-
-from bootstrap import App
+import Config
 
 __author__ = 'sweet'
 
 
 class PushNotify(object):
     def __init__(self):
-        self.config = App.config
-        self.token = self.config.get_dict['pushbullet']['token']
+        self.config = Config.config
+        self.token = self.config.get_dict()['pushbullet']['token']
 
     def push_msg(self, title, content):
         url = 'https://api.pushbullet.com/v2/pushes'

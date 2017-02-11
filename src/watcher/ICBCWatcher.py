@@ -1,7 +1,7 @@
 # -*- coding:utf-8 -*-
-from bootstrap import App
-from src.watcher.PageWatcher import PageWatcher
-from src.util import stringUtils
+from util import stringUtils
+from watcher.PageWatcher import PageWatcher
+import Config
 
 
 class ICBCWatcher(PageWatcher):
@@ -22,8 +22,8 @@ class ICBCWatcher(PageWatcher):
         # print('中间价：%s元/克' % price3)
 
         # 到达设定值时，发送警告
-        highest = float(App.config.get_dict["icbc"]["highest"])
-        lowest = float(App.config.get_dict["icbc"]["lowest"])
+        highest = float(Config.config.get_dict["icbc"]["highest"])
+        lowest = float(Config.config.get_dict["icbc"]["lowest"])
         if (price1 is not None) and (price1 > highest):
             self.notify('银行买入价高于设定值%s，目前价格%s' % (highest, price1))
         if (price1 is not None) and (price1 < lowest):

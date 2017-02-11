@@ -1,6 +1,6 @@
 # -*- coding:utf-8 -*-
 from pyquery import PyQuery as pq
-from src.notify.PushNotify import PushNotify
+from notify.PushNotify import PushNotify
 import datetime
 
 
