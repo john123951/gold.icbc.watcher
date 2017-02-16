@@ -20,7 +20,7 @@ class App(object):
         update_config()
         print('启动...')
         scheduler = BlockingScheduler()
-        scheduler.add_job(ICBCWatcher().start, trigger="cron", minute="*/2", day="0-4")
+        scheduler.add_job(ICBCWatcher().start, trigger="cron", minute="*/2", hour="7-23", day_of_week="0-4")
         scheduler.start()
         print('程序退出')
 
