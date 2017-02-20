@@ -52,5 +52,6 @@ class PageWatcher(object):
             url = self.get_url()
             document = pq(url=url)
             self.process(document)
-        except:
+        except Exception, ex:
+            print (ex.message)
             return

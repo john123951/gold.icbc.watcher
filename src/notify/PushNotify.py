@@ -9,8 +9,8 @@ __author__ = 'sweet'
 
 class PushNotify(object):
     def __init__(self):
-        self.config = Config.Config.config
-        self.token = lambda: self.config.get_dict()['pushbullet']['token']
+        self.config = lambda: Config.config
+        self.token = lambda: self.config().get_dict()['pushbullet']['token']
 
     def push_msg(self, title, content):
         url = 'https://api.pushbullet.com/v2/pushes'

@@ -27,3 +27,5 @@ class App(object):
 
 if __name__ == "__main__":
     App.main()
+    # update_config()
+    # ICBCWatcher().start()
